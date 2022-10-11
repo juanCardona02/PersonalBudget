@@ -20,7 +20,6 @@ public class UtilNumeric {
 
 	}
 	
-	//Puede recibir cualquier objeto
 
 	public <T extends Number> Number getDefault(T value) {
 		return getDefault(value, ZERO);
