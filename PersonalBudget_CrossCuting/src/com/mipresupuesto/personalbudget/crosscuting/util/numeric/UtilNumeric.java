@@ -19,6 +19,8 @@ public class UtilNumeric {
 		return UtilObject.getUtilObject().getDefault(value, deafaultValue);
 
 	}
+	
+	//Puede recibir cualquier objeto
 
 	public <T extends Number> Number getDefault(T value) {
 		return getDefault(value, ZERO);
