@@ -36,5 +36,6 @@ public class BudgetDomain {
 		this.person = (person == null) ? PersonDomainBuilder.get().build() : person;
 
 	}
+	
 
 }
