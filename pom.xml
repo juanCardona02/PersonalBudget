@@ -1,4 +1,4 @@
 <properties>
-		<sonar.organization>ing3ni3r14-s0ftwar3-edc</sonar.organization>
-		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
-	</properties>
+	<sonar.organization>ing3ni3r14-s0ftwar3-edc</sonar.organization>
+	<sonar.host.url>https://sonarcloud.io</sonar.host.url>
+</properties>
