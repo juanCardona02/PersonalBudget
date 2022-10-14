@@ -1,22 +1,22 @@
 package com.mipresupuesto.personalbudget.dto;
 
-public class YearEntity {
+public class YearDTO {
 	
 	private String id;
 	private int year;
 	
-	public YearEntity() {
+	public YearDTO() {
 		setId("");
 		setYear(0);
 	}
-	public YearEntity(final String id,final int year) {
+	public YearDTO(final String id,final int year) {
 		setId(id);
 		setYear(year);
 		
 	}
 	
-	public static final YearEntity create() {
-		return new YearEntity();
+	public static final YearDTO create() {
+		return new YearDTO();
 	}
 	
 	public final String getId() {

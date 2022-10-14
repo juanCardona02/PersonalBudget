@@ -16,6 +16,13 @@
 			</plugin>
 		</plugins>
 	</build>
+	<dependencies>
+		<dependency>
+			<groupId>com.mipresupuesto.personalbudget</groupId>
+			<artifactId>PersonalBudget_CrossCuting</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+	</dependencies>
 	<properties>
 		<sonar.organization>ing3ni3r14-s0ftwar3-edc</sonar.organization>
 		<sonar.host.url>https://sonarcloud.io</sonar.host.url>

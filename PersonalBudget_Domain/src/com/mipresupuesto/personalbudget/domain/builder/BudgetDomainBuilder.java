@@ -2,6 +2,7 @@ package com.mipresupuesto.personalbudget.domain.builder;
 
 import java.util.UUID;
 
+import com.mipresupuesto.personalbudget.crosscutting.utils.UtilUUID;
 import com.mipresupuesto.personalbudget.domain.BudgetDomain;
 import com.mipresupuesto.personalbudget.domain.PersonDomain;
 import com.mipresupuesto.personalbudget.domain.YearDomain;
@@ -13,6 +14,7 @@ public class BudgetDomainBuilder {
 	private PersonDomain person;
 
 	private BudgetDomainBuilder() {
+		setId(UtilUUID.DEFAULT_UUID);
 		setYear(year);
 		setPerson(person);
 
@@ -53,7 +55,7 @@ public class BudgetDomainBuilder {
 	}
 
 	public final BudgetDomainBuilder setId(final UUID id) {
-		this.id = (id == null) ?  UUID.randomUUID() : id;
+		this.id = (id == null) ?  UtilUUID.DEFAULT_UUID : id;
 		return this;
 
 	}

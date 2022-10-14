@@ -2,6 +2,8 @@ package com.mipresupuesto.personalbudget.domain;
 
 import java.util.UUID;
 
+import com.mipresupuesto.personalbudget.crosscutting.utils.UtilUUID;
+
 public final class YearDomain {
 	
 	private UUID id;
@@ -19,7 +21,8 @@ public final class YearDomain {
 	}
 	
 	private final void setId(final UUID id) {
-		this.id = (id == null) ?  UUID.randomUUID() : id;
+		//this.id = (id == null) ?  UtilUUID.DEFAULT_UUID : id;
+		this.id = UtilUUID.getDefaultUUID(id);
 
 	}
 

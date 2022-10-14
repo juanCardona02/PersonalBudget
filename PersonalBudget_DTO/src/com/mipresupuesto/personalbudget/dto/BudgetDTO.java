@@ -2,17 +2,17 @@ package com.mipresupuesto.personalbudget.dto;
 
 public class BudgetDTO {
 
-	private YearEntity year;
+	private YearDTO year;
 	private PersonDTO person;
 
 	public BudgetDTO() {
 
-		setYear(YearEntity.create());
+		setYear(YearDTO.create());
 		setPerson(PersonDTO.create());
 
 	}
 
-	public BudgetDTO(final YearEntity year, final PersonDTO person) {
+	public BudgetDTO(final YearDTO year, final PersonDTO person) {
 		setYear(year);
 		setPerson(person);
 	}
@@ -21,15 +21,15 @@ public class BudgetDTO {
 		return new BudgetDTO();
 	}
 
-	public final YearEntity getYear() {
+	public final YearDTO getYear() {
 
 		if (year == null) {
-			setYear(YearEntity.create());
+			setYear(YearDTO.create());
 		}
 		return year;
 	}
 
-	public final void setYear(YearEntity year) {
+	public final void setYear(YearDTO year) {
 		this.year = year;
 	}
 
