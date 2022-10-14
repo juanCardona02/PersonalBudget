@@ -15,12 +15,7 @@ public class PersonDomain {
 		setFirstName(firstName);
 		setMiddleName(middleName);
 		setLastName(lastName);
-		/*
-		this.id=id;
-		this.idCard=idCard;
-		this.firstName=firstName;
-		this.middleName=middleName;
-		this.lastName=lastName;*/
+	
 		
 	}
 	
@@ -36,7 +31,7 @@ public class PersonDomain {
 	}
 
 	private final void setIdCard(String idCard) {
-		this.idCard = (idCard == null) ? "" : id.trim();
+		this.idCard = (idCard == null) ? "" : idCard.trim();
 	}
 
 	private final void setFirstName(String firstName) {
@@ -70,6 +65,10 @@ public class PersonDomain {
 	
 	public final String getLastName() {
 		return lastName;
+	}
+	
+	public final String getName() {
+		return (getFirstName() + " " + getMiddleName().trim());
 	}
 
 	
