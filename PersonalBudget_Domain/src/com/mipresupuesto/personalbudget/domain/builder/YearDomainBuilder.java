@@ -1,5 +1,7 @@
 package com.mipresupuesto.personalbudget.domain.builder;
 
+import java.util.UUID;
+
 import com.mipresupuesto.personalbudget.domain.YearDomain;
 
 /*
@@ -7,11 +9,11 @@ import com.mipresupuesto.personalbudget.domain.YearDomain;
  */
 public class YearDomainBuilder {
 
-	private String id;
+	private UUID id;
 	private int year;
 
 	private YearDomainBuilder() {
-		setId("");
+		setId(UUID.randomUUID());
 		setYear(0);
 	}
 
@@ -19,9 +21,8 @@ public class YearDomainBuilder {
 		return new YearDomainBuilder();
 	}
 
-	public final YearDomainBuilder setId(String id) {
-		this.id = (id == null) ? "" : id.trim();
-
+	public final YearDomainBuilder setId(final UUID id) {
+		this.id = (id == null) ?  UUID.randomUUID() : id;
 		return this;
 	}
 
@@ -33,7 +34,7 @@ public class YearDomainBuilder {
 	/*
 	 * Usted esta es construyendo por eso es private
 	 */
-	private final String getId() {
+	private final UUID getId() {
 		return id;
 	}
 

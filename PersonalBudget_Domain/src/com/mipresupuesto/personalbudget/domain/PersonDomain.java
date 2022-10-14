@@ -1,14 +1,16 @@
 package com.mipresupuesto.personalbudget.domain;
 
+import java.util.UUID;
+
 public class PersonDomain {
 	
-	private String id;
+	private UUID id;
 	private String idCard;
 	private String firstName;
 	private String middleName;
 	private String lastName;
 
-	private PersonDomain(String id, String idCard,String firstName,String middleName,String lastName){
+	private PersonDomain(final UUID id,final String idCard,final String firstName,final String middleName,final String lastName){
 		
 		setId(id);
 		setIdCard(idCard);
@@ -19,35 +21,36 @@ public class PersonDomain {
 		
 	}
 	
-	public static PersonDomain create(String id, String idCard,String firstName,String middleName,String lastName) {
+	public static PersonDomain create(final UUID id,final String idCard,final String firstName,final String middleName,final String lastName) {
 		
 		return new PersonDomain(id, idCard, firstName, middleName, lastName);
 	
 	}
 
 	
-	private final void setId(String id) {
-		this.id = (id == null) ? "" : id.trim();
+	private final void setId(final UUID id) {
+		this.id = (id == null) ?  UUID.randomUUID() : id;
+
 	}
 
-	private final void setIdCard(String idCard) {
+	private final void setIdCard(final String idCard) {
 		this.idCard = (idCard == null) ? "" : idCard.trim();
 	}
 
-	private final void setFirstName(String firstName) {
+	private final void setFirstName(final String firstName) {
 		this.firstName = firstName;
 	}
 
-	private final void setMiddleName(String middleName) {
+	private final void setMiddleName(final String middleName) {
 		this.middleName = middleName;
 	}
 
-	public final void setLastName(String lastName) {
+	public final void setLastName(final String lastName) {
 		this.lastName = lastName;
 	
 	}
 	
-	public final String getId() {
+	public final UUID getId() {
 		return id;
 	}
 
