@@ -2,9 +2,17 @@ package com.mipresupuesto.personalbudget.entity;
 
 import java.util.UUID;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name="YearEntity")
 public class YearEntity {
 	
+	@Id
 	private UUID id;
+	
 	private int year;
 	
 	public YearEntity() {

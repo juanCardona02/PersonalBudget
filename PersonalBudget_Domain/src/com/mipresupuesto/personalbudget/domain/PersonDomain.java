@@ -11,21 +11,26 @@ public class PersonDomain {
 	private String firstName;
 	private String middleName;
 	private String lastName;
+	private String completeName;
+	private String name;
 
-	private PersonDomain(final UUID id,final String idCard,final String firstName,final String middleName,final String lastName){
+	private PersonDomain(final UUID id,final String idCard,final String firstName,final String middleName,final String lastName,final String name,final String completeName){
 		
 		setId(id);
 		setIdCard(idCard);
 		setFirstName(firstName);
 		setMiddleName(middleName);
 		setLastName(lastName);
+		setName(name);
+		setCompleteName(completeName);
+		
 	
 		
 	}
 	
-	public static PersonDomain create(final UUID id,final String idCard,final String firstName,final String middleName,final String lastName) {
+	public static PersonDomain create(final UUID id,final String idCard,final String firstName,final String middleName,final String lastName,final String name,final String completeName) {
 		
-		return new PersonDomain(id, idCard, firstName, middleName, lastName);
+		return new PersonDomain(id, idCard, firstName, middleName, lastName,name,completeName);
 	
 	}
 
@@ -52,6 +57,13 @@ public class PersonDomain {
 		this.lastName = lastName;
 	
 	}
+	private final void setName(final String name) {
+		this.name = name;
+	}
+	private final void setCompleteName(final String completeName) {
+		this.completeName = completeName;
+	}
+
 	
 	public final UUID getId() {
 		return id;
@@ -77,6 +89,11 @@ public class PersonDomain {
 		return (getFirstName() + " " + getMiddleName().trim());
 	}
 
+	public String getCompleteName() {
+		return completeName;
+	}
+
+	
 	
 	
 	

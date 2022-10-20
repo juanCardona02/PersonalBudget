@@ -1,12 +1,14 @@
 package com.mipresupuesto.personalbudget.dto;
 
+import com.mipresupuesto.personalbudget.crosscuting.util.text.UtilText;
+
 public class YearDTO {
 	
 	private String id;
 	private int year;
 	
 	public YearDTO() {
-		setId("");
+		setId(UtilText.EMPTY);
 		setYear(0);
 	}
 	public YearDTO(final String id,final int year) {

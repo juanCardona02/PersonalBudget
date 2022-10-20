@@ -3,16 +3,33 @@ package com.mipresupuesto.personalbudget.entity;
 
 import java.util.UUID;
 
+
 import com.mipresupuesto.personalbudget.crosscutting.utils.UtilUUID;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name="PersonEntity")
 
 public class PersonEntity {
 	
+	@Id
 	private UUID id;
+	
+	@Column(name="")
 	private String idCard;
+	@Column(name="")
 	private String firstName;
+	@Column(name="")
 	private String middleName;
+	@Column(name="")
 	private String lastName;
+	@Column(name="")
 	private String name;
+	@Column(name="")
 	private String completeName;
 	
 	public PersonEntity() {

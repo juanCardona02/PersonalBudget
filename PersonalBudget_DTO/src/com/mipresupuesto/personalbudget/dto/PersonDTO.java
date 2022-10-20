@@ -1,5 +1,7 @@
 package com.mipresupuesto.personalbudget.dto;
 
+import com.mipresupuesto.personalbudget.crosscuting.util.text.UtilText;
+
 public class PersonDTO {
 	
 	private String id;
@@ -13,13 +15,13 @@ public class PersonDTO {
 	public PersonDTO() {
 		
 
-		setId("");
-		setIdCard("");
-		setFirstName("");
-		setMiddleName("");
-		setLastName("");
-		setName("");
-		setCompleteName("");
+		setId(UtilText.EMPTY);
+		setIdCard(UtilText.EMPTY);
+		setFirstName(UtilText.EMPTY);
+		setMiddleName(UtilText.EMPTY);
+		setLastName(UtilText.EMPTY);
+		setName(UtilText.EMPTY);
+		setCompleteName(UtilText.EMPTY);
 		
 	}
 	public PersonDTO(final String id,final String idCard,final String firstName,final String middleName,final String lastName,final String name, final String completeName){
@@ -44,24 +46,24 @@ public class PersonDTO {
 	}
 
 	public final void setIdCard(final String idCard) {
-		this.idCard = idCard;
+		this.idCard = UtilText.getDefault(idCard);
 	}
 
 	public final void setFirstName(final String firstName) {
-		this.firstName = firstName;
+		this.firstName = UtilText.getDefault(firstName);
 	}
 
 	public final void setMiddleName(final String middleName) {
-		this.middleName = middleName;
+		this.middleName = UtilText.getDefault(middleName);
 	}
 
 	public final void setLastName(final String lastName) {
-		this.lastName = lastName;
+		this.lastName = UtilText.getDefault(lastName);
 	
 	}
 	
 	public final String getId() {
-		if (id == null) {
+		if (UtilText.isNull(id)) {
 			setId("");
 		}
 		return id.trim();
@@ -102,7 +104,7 @@ public class PersonDTO {
 		return name.trim();
 	}
 	public void setName(String name) {
-		this.name = name;
+		this.name = UtilText.getDefault(name);
 	}
 	public String getCompleteName() {
 		
@@ -112,7 +114,7 @@ public class PersonDTO {
 		return completeName.trim();
 	}
 	public void setCompleteName(String completeName) {
-		this.completeName = completeName;
+		this.completeName = UtilText.getDefault(completeName);
 	}
 
 

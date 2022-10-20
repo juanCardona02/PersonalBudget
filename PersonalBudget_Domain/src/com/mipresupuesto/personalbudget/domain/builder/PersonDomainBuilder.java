@@ -2,6 +2,7 @@ package com.mipresupuesto.personalbudget.domain.builder;
 
 import java.util.UUID;
 
+import com.mipresupuesto.personalbudget.crosscuting.util.text.UtilText;
 import com.mipresupuesto.personalbudget.crosscutting.utils.UtilUUID;
 import com.mipresupuesto.personalbudget.domain.PersonDomain;
 
@@ -12,14 +13,19 @@ public class PersonDomainBuilder {
 	private String firstName;
 	private String middleName;
 	private String lastName;
+	private String name;
+	private String completeName;
 
 	private PersonDomainBuilder() {
 
 		setId(UtilUUID.DEFAULT_UUID);
-		setIdCard("");
-		setFirstName("");
-		setMiddleName("");
-		setLastName("");
+		setIdCard(UtilText.EMPTY);
+		setFirstName(UtilText.EMPTY);
+		setMiddleName(UtilText.EMPTY);
+		setLastName(UtilText.EMPTY);
+		setName(UtilText.EMPTY);
+		setCompleteName(UtilText.EMPTY);
+		
 	}
 
 	public static final PersonDomainBuilder get() {
@@ -82,7 +88,23 @@ public class PersonDomainBuilder {
 
 	public PersonDomain build() {
 
-		return PersonDomain.create(getId(), getIdCard(), getFirstName(), getMiddleName(), getLastName());
+		return PersonDomain.create(getId(), getIdCard(), getFirstName(), getMiddleName(), getLastName(),getName(),getCompleteName());
+	}
+
+	private final String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	private final String getCompleteName() {
+		return completeName;
+	}
+
+	public void setCompleteName(String completeName) {
+		this.completeName = completeName;
 	}
 
 }

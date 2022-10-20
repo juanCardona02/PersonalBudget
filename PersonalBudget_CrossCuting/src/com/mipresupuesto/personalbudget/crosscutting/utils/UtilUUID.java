@@ -2,7 +2,6 @@ package com.mipresupuesto.personalbudget.crosscutting.utils;
 
 import java.util.UUID;
 
-import com.mipresupuesto.personalbudget.crosscuting.util.text.UtilText;
 
 public class UtilUUID {
 
@@ -43,7 +42,6 @@ public class UtilUUID {
 			try {
 				uuid = UUID.fromString(uuidString);
 			}catch (IllegalArgumentException e) {
-				// TODO: handle exception
 			}
 		}
 		

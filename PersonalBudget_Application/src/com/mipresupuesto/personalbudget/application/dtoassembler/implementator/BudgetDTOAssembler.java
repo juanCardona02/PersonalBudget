@@ -3,32 +3,35 @@ package com.mipresupuesto.personalbudget.application.dtoassembler.implementator;
 import com.mipresupuesto.personalbudget.application.dtoassembler.DTOAssambler;
 import com.mipresupuesto.personalbudget.crosscuting.util.object.UtilObject;
 import com.mipresupuesto.personalbudget.crosscutting.utils.UtilUUID;
+import com.mipresupuesto.personalbudget.domain.BudgetDomain;
 import com.mipresupuesto.personalbudget.domain.YearDomain;
+import com.mipresupuesto.personalbudget.domain.builder.BudgetDomainBuilder;
 import com.mipresupuesto.personalbudget.domain.builder.YearDomainBuilder;
+import com.mipresupuesto.personalbudget.dto.BudgetDTO;
 import com.mipresupuesto.personalbudget.dto.YearDTO;
 
-public final class YearDTOAssambler implements DTOAssambler<YearDTO, YearDomain> {
+public class BudgetDTOAssembler implements DTOAssambler<BudgetDTO, BudgetDomain> {
 
 	@Override
-	public YearDomain assembleDomain(YearDTO dto) {
+	public BudgetDomain assembleDomain(BudgetDTO dto) {
 
-		YearDomain domain = YearDomainBuilder.get().build();
+		BudgetDomain domain = BudgetDomainBuilder.get().build();
 
 		if (!UtilObject.getUtilObject().isNull(dto)) {
 
-			domain = YearDomainBuilder.get().setId(UtilUUID.getUUIDFromString(dto.getId())).setYear(dto.getYear())
-					.build();
+			//domain = BudgetDomainBuilder.get().setYear(dto.getYear()).setPerson(dto.getPerson()).build();
 		}
 		return domain;
+		
 	}
 
 	@Override
-	public YearDTO assembleDTO(YearDomain domain) {
-
-		YearDTO dto = new YearDTO();
+	public BudgetDTO assembleDTO(BudgetDomain domain) {
+	
+		BudgetDTO dto = new BudgetDTO();
 
 		if (!UtilObject.getUtilObject().isNull(domain)) {
-			dto = new YearDTO(UtilUUID.getStringFromUUID(domain.getId()), domain.getYear());
+			//dto = new BudgetDTO(domain.getYear(), domain.getPerson());
 		}
 		return dto;
 	}
