@@ -2,17 +2,28 @@ package com.mipresupuesto.personalbudget.entity;
 
 import java.util.UUID;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
 
 @Entity
-@Table(name="BudgetEntity")
+@Table(name="Budget")
 public class BudgetEntity {
 	
 	@Id
+	@Column(name="id")
 	private UUID id;
+	
+	//muchos a uno
+	@ManyToOne
+	@JoinColumn(name="idYear")
 	private YearEntity year;
+	@ManyToOne
+	@JoinColumn(name="idPerson")
 	private PersonEntity person;
 
 	public BudgetEntity() {

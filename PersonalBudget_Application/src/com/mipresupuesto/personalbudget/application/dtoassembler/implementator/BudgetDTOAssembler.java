@@ -1,5 +1,7 @@
 package com.mipresupuesto.personalbudget.application.dtoassembler.implementator;
 
+import org.springframework.stereotype.Component;
+
 import com.mipresupuesto.personalbudget.application.dtoassembler.DTOAssambler;
 import com.mipresupuesto.personalbudget.crosscuting.util.object.UtilObject;
 import com.mipresupuesto.personalbudget.crosscutting.utils.UtilUUID;
@@ -10,6 +12,7 @@ import com.mipresupuesto.personalbudget.domain.builder.YearDomainBuilder;
 import com.mipresupuesto.personalbudget.dto.BudgetDTO;
 import com.mipresupuesto.personalbudget.dto.YearDTO;
 
+@Component
 public class BudgetDTOAssembler implements DTOAssambler<BudgetDTO, BudgetDomain> {
 
 	@Override

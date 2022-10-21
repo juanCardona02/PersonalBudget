@@ -19,6 +19,12 @@
 		</plugins>
 	</build>
 	<dependencies>
+		<!-- https://mvnrepository.com/artifact/com.microsoft.sqlserver/mssql-jdbc -->
+		<dependency>
+			<groupId>com.microsoft.sqlserver</groupId>
+			<artifactId>mssql-jdbc</artifactId>
+			<version>11.2.1.jre18</version>
+		</dependency>
 		<dependency>
 			<groupId>com.mipresupuesto.personalbudget</groupId>
 			<artifactId>PersonalBudget_CrossCuting</artifactId>
