@@ -3,7 +3,7 @@ package com.mipresupuesto.personalbudget.domain.builder;
 import java.util.UUID;
 
 import com.mipresupuesto.personalbudget.crosscuting.util.text.UtilText;
-import com.mipresupuesto.personalbudget.crosscutting.utils.UtilUUID;
+import com.mipresupuesto.personalbudget.crosscutting.util.uuid.UtilUUID;
 import com.mipresupuesto.personalbudget.domain.PersonDomain;
 
 public class PersonDomainBuilder {
@@ -42,26 +42,30 @@ public class PersonDomainBuilder {
 
 	public final PersonDomainBuilder setIdCard(final String idCard) {
 
-		this.idCard = (idCard == null) ? "" : idCard.trim();
+		//this.idCard = (idCard == null) ? "" : idCard.trim();
+		this.idCard= UtilText.getDefault(idCard);
 		return this;
 
 	}
 
 	public final PersonDomainBuilder setFirstName(String firstName) {
-		this.firstName = (firstName == null) ? "" : firstName.trim();
+		//this.firstName = (firstName == null) ? "" : firstName.trim();
+		this.firstName = UtilText.getDefault(firstName);
 		return this;
 
 	}
 
 	public final PersonDomainBuilder setMiddleName(String middleName) {
 
-		this.middleName = (middleName == null) ? "" : middleName.trim();
+		//this.middleName = (middleName == null) ? "" : middleName.trim();
+		this.middleName= UtilText.getDefault(middleName);
 		return this;
 
 	}
 
 	public final PersonDomainBuilder setLastName(String lastName) {
-		this.lastName = (lastName == null) ? "" : lastName.trim();
+		//this.lastName = (lastName == null) ? "" : lastName.trim();
+		this.lastName= UtilText.getDefault(lastName);
 		return this;
 
 	}

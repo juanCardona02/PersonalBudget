@@ -1,5 +1,7 @@
 package com.mipresupuesto.personalbudget.dto;
 
+import com.mipresupuesto.personalbudget.crosscuting.util.object.UtilObject;
+
 public class BudgetDTO {
 
 	private YearDTO year;
@@ -23,26 +25,26 @@ public class BudgetDTO {
 
 	public final YearDTO getYear() {
 
-		if (year == null) {
+		if (UtilObject.getUtilObject().isNull(year)) {
 			setYear(YearDTO.create());
 		}
 		return year;
 	}
 
 	public final void setYear(YearDTO year) {
-		this.year = year;
+		this.year = UtilObject.getUtilObject().getDefault(year, new YearDTO());
 	}
 
 	public final PersonDTO getPerson() {
 
-		if (person == null) {
+		if (UtilObject.getUtilObject().isNull(person)) {
 			setPerson(PersonDTO.create());
 		}
 		return person;
 	}
 
 	public final void setPerson(PersonDTO person) {
-		this.person = person;
+		this.person = UtilObject.getUtilObject().getDefault(person, new PersonDTO());
 	}
 
 }

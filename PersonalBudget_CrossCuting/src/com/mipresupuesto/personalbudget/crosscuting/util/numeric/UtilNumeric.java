@@ -15,13 +15,13 @@ public class UtilNumeric {
 		return INSTANCE;
 	}
 
-	public <T extends Number> T getDefault(T value, T deafaultValue) {
+	public static <T extends Number> T getDefault(T value, T deafaultValue) {
 		return UtilObject.getUtilObject().getDefault(value, deafaultValue);
 
 	}
 	
 
-	public <T extends Number> Number getDefault(T value) {
+	public static <T extends Number> Number getDefault(T value) {
 		return getDefault(value, ZERO);
 
 	}

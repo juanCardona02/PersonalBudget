@@ -2,7 +2,8 @@ package com.mipresupuesto.personalbudget.domain;
 
 import java.util.UUID;
 
-import com.mipresupuesto.personalbudget.crosscutting.utils.UtilUUID;
+import com.mipresupuesto.personalbudget.crosscuting.util.text.UtilText;
+import com.mipresupuesto.personalbudget.crosscutting.util.uuid.UtilUUID;
 
 public class PersonDomain {
 	
@@ -42,26 +43,27 @@ public class PersonDomain {
 	}
 
 	private final void setIdCard(final String idCard) {
-		this.idCard = (idCard == null) ? "" : idCard.trim();
+		//this.idCard = (idCard == null) ? "" : idCard.trim();
+		this.idCard= UtilText.getDefault(idCard);
 	}
 
 	private final void setFirstName(final String firstName) {
-		this.firstName = firstName;
+		this.firstName = UtilText.getDefault(firstName);
 	}
 
 	private final void setMiddleName(final String middleName) {
-		this.middleName = middleName;
+		this.middleName = UtilText.getDefault(middleName);
 	}
 
 	public final void setLastName(final String lastName) {
-		this.lastName = lastName;
+		this.lastName = UtilText.getDefault(lastName);
 	
 	}
 	private final void setName(final String name) {
-		this.name = name;
+		this.name = UtilText.getDefault(name);
 	}
 	private final void setCompleteName(final String completeName) {
-		this.completeName = completeName;
+		this.completeName = UtilText.getDefault(completeName);
 	}
 
 	
@@ -86,7 +88,7 @@ public class PersonDomain {
 	}
 	
 	public final String getName() {
-		return (getFirstName() + " " + getMiddleName().trim());
+		return (getFirstName() + " " + UtilText.trim(getMiddleName()));
 	}
 
 	public String getCompleteName() {

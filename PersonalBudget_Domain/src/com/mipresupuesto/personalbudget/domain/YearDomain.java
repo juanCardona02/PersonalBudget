@@ -2,7 +2,8 @@ package com.mipresupuesto.personalbudget.domain;
 
 import java.util.UUID;
 
-import com.mipresupuesto.personalbudget.crosscutting.utils.UtilUUID;
+import com.mipresupuesto.personalbudget.crosscuting.util.numeric.UtilNumeric;
+import com.mipresupuesto.personalbudget.crosscutting.util.uuid.UtilUUID;
 
 public final class YearDomain {
 	
@@ -27,7 +28,7 @@ public final class YearDomain {
 	}
 
 	private final void setYear(final int year) {
-		this.year = year;
+		this.year = (int) UtilNumeric.getDefault(year);
 		
 	}
 

@@ -7,46 +7,51 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.mipresupuesto.personalbudget.crosscuting.util.numeric.UtilNumeric;
+
 //import jakarta.persistence.Entity;
 //import jakarta.persistence.Id;
 //import jakarta.persistence.Table;
 
 @Entity
-@Table(name="Year")
+@Table(name = "Year")
 public class YearEntity {
-	
+
 	@Id
-	@Column(name="id")
+	@Column(name = "id")
 	private UUID id;
-	
-	@Column(name="year")
+
+	@Column(name = "year")
 	private int year;
-	
+
 	public YearEntity() {
 		setYear(0);
 	}
-	public YearEntity(final UUID id,final int year) {
+
+	public YearEntity(final UUID id, final int year) {
 		setId(id);
 		setYear(year);
-		
+
 	}
-	
-	
+
 	public final UUID getId() {
-		
+
 		return id;
 	}
+
 	public final void setId(final UUID id) {
 		this.id = id;
 	}
+
 	public final int getYear() {
 		if (year < 0) {
 			setYear(0);
 		}
 		return year;
 	}
+
 	public final void setYear(final int year) {
-		this.year = year;
+		this.year = (int) UtilNumeric.getDefault(year);
 	}
 
 }

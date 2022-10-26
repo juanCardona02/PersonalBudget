@@ -1,6 +1,8 @@
-package com.mipresupuesto.personalbudget.crosscutting.utils;
+package com.mipresupuesto.personalbudget.crosscutting.util.uuid;
 
 import java.util.UUID;
+
+import com.mipresupuesto.personalbudget.crosscuting.util.object.UtilObject;
 
 
 public class UtilUUID {
@@ -58,4 +60,7 @@ public class UtilUUID {
 		return uuidString;
 		
 	}
+	
+	public static boolean isNull(UUID value) {
+		return UtilObject.getUtilObject().isNull(value);}
 }

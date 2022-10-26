@@ -1,6 +1,5 @@
 package com.mipresupuesto.personalbudget.entity;
 
-
 import java.util.UUID;
 
 import javax.persistence.Column;
@@ -8,43 +7,45 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import com.mipresupuesto.personalbudget.crosscutting.utils.UtilUUID;
-
+import com.mipresupuesto.personalbudget.crosscuting.util.text.UtilText;
+import com.mipresupuesto.personalbudget.crosscutting.util.uuid.UtilUUID;
 
 @Entity
-@Table(name="Person")
+@Table(name = "Person")
 public class PersonEntity {
-	
+
 	@Id
-	@Column(name="id")
+	@Column(name = "id")
 	private UUID id;
-	
-	@Column(name="idCard")
+
+	@Column(name = "idCard")
 	private String idCard;
-	@Column(name="firstName")
+	@Column(name = "firstName")
 	private String firstName;
-	@Column(name="middleName")
+	@Column(name = "middleName")
 	private String middleName;
-	@Column(name="lastName")
+	@Column(name = "lastName")
 	private String lastName;
-	@Column(name="name")
+	@Column(name = "name")
 	private String name;
-	@Column(name="completeName")
+	@Column(name = "completeName")
 	private String completeName;
-	
+
 	public PersonEntity() {
-		
+
 		setId(UtilUUID.DEFAULT_UUID);
-		setIdCard("");
-		setFirstName("");
-		setMiddleName("");
-		setLastName("");
-		setName("");
-		setCompleteName("");
-		
+		setIdCard(UtilText.EMPTY);
+		setFirstName(UtilText.EMPTY);
+		setMiddleName(UtilText.EMPTY);
+		setLastName(UtilText.EMPTY);
+		setName(UtilText.EMPTY);
+		setCompleteName(UtilText.EMPTY);
+
 	}
-	public PersonEntity(final UUID id,final String idCard,final String firstName,final String middleName,final String lastName,final String name, final String completeName){
-		
+
+	public PersonEntity(final UUID id, final String idCard, final String firstName, final String middleName,
+			final String lastName, final String name, final String completeName) {
+
 		setId(id);
 		setIdCard(idCard);
 		setFirstName(firstName);
@@ -52,88 +53,89 @@ public class PersonEntity {
 		setLastName(lastName);
 		setName(name);
 		setCompleteName(completeName);
-		
+
 	}
-	
-	
+
 	public final void setId(final UUID id) {
-		this.id= id;
+		this.id = id;
 	}
 
 	public final void setIdCard(final String idCard) {
-		this.idCard = idCard;
+		this.idCard = UtilText.getDefault(idCard);
 	}
 
 	public final void setFirstName(final String firstName) {
-		this.firstName = firstName;
+		this.firstName = UtilText.getDefault(firstName);
 	}
 
 	public final void setMiddleName(final String middleName) {
-		this.middleName = middleName;
+		this.middleName = UtilText.getDefault(middleName);
 	}
 
 	public final void setLastName(final String lastName) {
-		this.lastName = lastName;
-	
+		this.lastName = UtilText.getDefault(lastName);
+
 	}
-	
+
 	public final UUID getId() {
-		
-		if(id == null) {
+
+		if (UtilUUID.isNull(id)) {
 			setId(UtilUUID.DEFAULT_UUID);
 		}
-		
+
 		return id;
 	}
 
 	public final String getIdCard() {
-		
-		if (idCard == null) {
-			setIdCard("");
+
+		if (UtilText.isNull(idCard)) {
+			setIdCard(UtilText.EMPTY);
 		}
-		return idCard.trim();
+		return UtilText.trim(idCard);
 	}
 
 	public final String getFirstName() {
-		if (firstName == null) {
-			setFirstName("");
+		if (UtilText.isNull(firstName)) {
+			setFirstName(UtilText.EMPTY);
 		}
-		return firstName.trim();
+		return UtilText.trim(firstName);
 	}
 
 	public final String getMiddleName() {
-		if (middleName == null) {
-			setMiddleName("");
+		if (UtilText.isNull(middleName)) {
+			setMiddleName(UtilText.EMPTY);
 		}
-		return middleName.trim();
+		return UtilText.trim(middleName);
 	}
-	
+
 	public final String getLastName() {
-		if (lastName == null ) {
-			setLastName("");
+		if (UtilText.isNull(lastName)) {
+			setLastName(UtilText.EMPTY);
 		}
-		return lastName.trim();
+		return UtilText.trim(lastName);
 	}
+
 	public String getName() {
-		if (name == null ) {
-			setName("");
+		if (UtilText.isNull(name)) {
+			setName(UtilText.EMPTY);
 		}
-		return name.trim();
+		return UtilText.trim(name);
 	}
+
 	public void setName(String name) {
-		this.name = name;
+		this.name = UtilText.getDefault(name);
 	}
+
 	public String getCompleteName() {
-		
-		if (completeName == null) {
-			setCompleteName("");
+
+		if (UtilText.isNull(completeName)) {
+			setCompleteName(UtilText.EMPTY);
 		}
-		return completeName.trim();
+		return UtilText.trim(completeName);
 	}
+
 	public void setCompleteName(String completeName) {
-		this.completeName = completeName;
+		this.completeName = UtilText.getDefault(completeName);
 	}
-
-
 
 }

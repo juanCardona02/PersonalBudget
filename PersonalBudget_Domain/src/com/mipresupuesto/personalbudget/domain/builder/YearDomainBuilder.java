@@ -2,7 +2,7 @@ package com.mipresupuesto.personalbudget.domain.builder;
 
 import java.util.UUID;
 
-import com.mipresupuesto.personalbudget.crosscutting.utils.UtilUUID;
+import com.mipresupuesto.personalbudget.crosscutting.util.uuid.UtilUUID;
 import com.mipresupuesto.personalbudget.domain.YearDomain;
 
 /*

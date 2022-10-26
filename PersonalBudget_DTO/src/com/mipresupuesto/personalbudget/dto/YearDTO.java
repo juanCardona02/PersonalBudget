@@ -1,5 +1,6 @@
 package com.mipresupuesto.personalbudget.dto;
 
+import com.mipresupuesto.personalbudget.crosscuting.util.numeric.UtilNumeric;
 import com.mipresupuesto.personalbudget.crosscuting.util.text.UtilText;
 
 public class YearDTO {
@@ -24,7 +25,7 @@ public class YearDTO {
 	public final String getId() {
 		
 		if (id == null || "".equals(id.trim())) {
-			setId("");
+			setId(UtilText.EMPTY);
 		}
 		return id;
 	}
@@ -38,7 +39,7 @@ public class YearDTO {
 		return year;
 	}
 	public final void setYear(final int year) {
-		this.year = year;
+		this.year = (int) UtilNumeric.getDefault(year);
 	}
 
 }

@@ -2,7 +2,7 @@ package com.mipresupuesto.personalbudget.application.dtoassembler.implementator;
 
 import com.mipresupuesto.personalbudget.application.dtoassembler.DTOAssambler;
 import com.mipresupuesto.personalbudget.crosscuting.util.object.UtilObject;
-import com.mipresupuesto.personalbudget.crosscutting.utils.UtilUUID;
+import com.mipresupuesto.personalbudget.crosscutting.util.uuid.UtilUUID;
 import com.mipresupuesto.personalbudget.domain.YearDomain;
 import com.mipresupuesto.personalbudget.domain.builder.YearDomainBuilder;
 import com.mipresupuesto.personalbudget.dto.YearDTO;

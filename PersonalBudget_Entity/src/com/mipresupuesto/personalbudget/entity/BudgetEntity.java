@@ -9,21 +9,22 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.mipresupuesto.personalbudget.crosscuting.util.object.UtilObject;
 
 @Entity
-@Table(name="Budget")
+@Table(name = "Budget")
 public class BudgetEntity {
-	
+
 	@Id
-	@Column(name="id")
+	@Column(name = "id")
 	private UUID id;
-	
-	//muchos a uno
+
+	// muchos a uno
 	@ManyToOne
-	@JoinColumn(name="idYear")
+	@JoinColumn(name = "idYear")
 	private YearEntity year;
 	@ManyToOne
-	@JoinColumn(name="idPerson")
+	@JoinColumn(name = "idPerson")
 	private PersonEntity person;
 
 	public BudgetEntity() {
@@ -34,11 +35,7 @@ public class BudgetEntity {
 	}
 
 	public final UUID getId() {
-		
-		//No hcaer
-		/*if ( id== null) {
-			setId(UUID.randomUUID());
-		}*/
+
 		return id;
 	}
 
@@ -53,26 +50,26 @@ public class BudgetEntity {
 
 	public final YearEntity getYear() {
 
-		if (year == null) {
+		if (UtilObject.getUtilObject().isNull(year)) {
 			setYear(new YearEntity());
 		}
 		return year;
 	}
 
 	public final void setYear(YearEntity year) {
-		this.year = year;
+		this.year = UtilObject.getUtilObject().getDefault(year, new YearEntity());
 	}
 
 	public final PersonEntity getPerson() {
 
-		if (person == null) {
+		if (UtilObject.getUtilObject().isNull(person)) {
 			setPerson(new PersonEntity());
 		}
 		return person;
 	}
 
 	public final void setPerson(PersonEntity person) {
-		this.person = person;
+		this.person = UtilObject.getUtilObject().getDefault(person, new PersonEntity());
 	}
 
 }

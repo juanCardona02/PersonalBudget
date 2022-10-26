@@ -64,42 +64,42 @@ public class PersonDTO {
 	
 	public final String getId() {
 		if (UtilText.isNull(id)) {
-			setId("");
+			setId(UtilText.EMPTY);
 		}
 		return id.trim();
 	}
 
 	public final String getIdCard() {
 		
-		if (idCard == null) {
-			setIdCard("");
+		if (UtilText.isNull(idCard)) {
+			setIdCard(UtilText.EMPTY);
 		}
 		return idCard.trim();
 	}
 
 	public final String getFirstName() {
-		if (firstName == null) {
-			setFirstName("");
+		if (UtilText.isNull(firstName)) {
+			setFirstName(UtilText.EMPTY);
 		}
 		return firstName.trim();
 	}
 
 	public final String getMiddleName() {
-		if (middleName == null) {
-			setMiddleName("");
+		if (UtilText.isNull(middleName)) {
+			setMiddleName(UtilText.EMPTY);
 		}
 		return middleName.trim();
 	}
 	
 	public final String getLastName() {
-		if (lastName == null ) {
-			setLastName("");
+		if (UtilText.isNull(lastName) ) {
+			setLastName(UtilText.EMPTY);
 		}
 		return lastName.trim();
 	}
 	public String getName() {
-		if (name == null ) {
-			setName("");
+		if (UtilText.isNull(name)) {
+			setName(UtilText.EMPTY);
 		}
 		return name.trim();
 	}
@@ -108,8 +108,8 @@ public class PersonDTO {
 	}
 	public String getCompleteName() {
 		
-		if (completeName == null) {
-			setCompleteName("");
+		if (UtilText.isNull(completeName)) {
+			setCompleteName(UtilText.EMPTY);
 		}
 		return completeName.trim();
 	}
