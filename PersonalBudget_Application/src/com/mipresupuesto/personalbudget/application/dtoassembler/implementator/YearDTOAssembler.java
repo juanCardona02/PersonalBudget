@@ -7,7 +7,7 @@ import com.mipresupuesto.personalbudget.domain.YearDomain;
 import com.mipresupuesto.personalbudget.domain.builder.YearDomainBuilder;
 import com.mipresupuesto.personalbudget.dto.YearDTO;
 
-public final class YearDTOAssambler implements DTOAssambler<YearDTO, YearDomain> {
+public final class YearDTOAssembler implements DTOAssambler<YearDTO, YearDomain> {
 
 	@Override
 	public YearDomain assembleDomain(YearDTO dto) {

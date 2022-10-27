@@ -43,7 +43,8 @@ public class BudgetEntity {
 		this.id = id;
 	}
 
-	public BudgetEntity(final YearEntity year, final PersonEntity person) {
+	public BudgetEntity(final UUID id, final YearEntity year, final PersonEntity person) {
+		setId(id);
 		setYear(year);
 		setPerson(person);
 	}

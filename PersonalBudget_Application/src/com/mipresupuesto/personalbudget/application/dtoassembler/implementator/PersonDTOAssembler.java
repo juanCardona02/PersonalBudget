@@ -11,27 +11,29 @@ public class PersonDTOAssembler implements DTOAssambler<PersonDTO, PersonDomain>
 
 	@Override
 	public PersonDomain assembleDomain(PersonDTO dto) {
-		
+
 		PersonDomain domain = PersonDomainBuilder.get().build();
 
 		if (!UtilObject.getUtilObject().isNull(dto)) {
 
-			domain = PersonDomainBuilder.get().setId(UtilUUID.getUUIDFromString(dto.getId())).setIdCard(dto.getIdCard()).setFirstName(dto.getFirstName()).setMiddleName(dto.getMiddleName()).setLastName(dto.getLastName())
+			domain = PersonDomainBuilder.get().setId(UtilUUID.getUUIDFromString(dto.getId())).setIdCard(dto.getIdCard())
+					.setFirstName(dto.getFirstName()).setMiddleName(dto.getMiddleName()).setLastName(dto.getLastName())
 					.build();
 		}
 		return domain;
 	}
-	
 
 	@Override
 	public PersonDTO assembleDTO(PersonDomain domain) {
-		
-		PersonDTO dto = new PersonDTO();
+
+		PersonDTO personDto = new PersonDTO();
 
 		if (!UtilObject.getUtilObject().isNull(domain)) {
-			dto = new PersonDTO(UtilUUID.getStringFromUUID(domain.getId()), domain.getIdCard(), domain.getFirstName(),domain.getMiddleName(),domain.getLastName(),domain.getName(),domain.getCompleteName());
+			personDto = new PersonDTO(UtilUUID.getStringFromUUID(domain.getId()), domain.getIdCard(),
+					domain.getFirstName(), domain.getMiddleName(), domain.getLastName(), domain.getName(),
+					domain.getCompleteName());
 		}
-		return dto;
+		return personDto;
 	}
 
 }
