@@ -11,66 +11,63 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.mipresupuesto.personalbudget.application.command.implementation.CreateBudgetCommand;
 import com.mipresupuesto.personalbudget.application.command.interfaces.CreateBudgetPort;
+import com.mipresupuesto.personalbudget.controller.response.Response;
 import com.mipresupuesto.personalbudget.crosscuting.exception.PersonalBudgetException;
 import com.mipresupuesto.personalbudget.dto.BudgetDTO;
 
 @RestController
 @RequestMapping("api/v1/budget")
 public class BudgetController {
-	
-	
+
 	@Autowired
 	private CreateBudgetPort createBudgetPort;
-	
 
-	
-	@Autowired
-	private CreateBudgetCommand createBudgetCommand;
-	
-	
+	/*
+	 * @Autowired private CreateBudgetCommand createBudgetCommand;
+	 */
+
 	@PostMapping
-	public ResponseEntity<BudgetDTO> create(@RequestBody BudgetDTO budget) {
+	public ResponseEntity<Response<BudgetDTO>> createBudget(@RequestBody BudgetDTO budget) {
+		Response<BudgetDTO> response = new Response<>();
+		ResponseEntity<Response<BudgetDTO>> responseEntity;
 		HttpStatus statusCode = HttpStatus.BAD_REQUEST;
-		
+		response.setData(new ArrayList<>());
 		ArrayList<String> messages = new ArrayList<>();
 		try {
-			createBudgetPort.exceute(budget);
+			createBudgetPort.execute(budget);
+			response.addData(budget);
 			statusCode = HttpStatus.OK;
 			messages.add("Budget created Succesfully");
-		}catch(PersonalBudgetException exception){
+		} catch (PersonalBudgetException exception) {
 			messages.add(exception.getMessage());
-		}catch(Exception exception){
+		} catch (Exception exception) {
 			messages.add(exception.getMessage());
 		}
-        return new ResponseEntity<>(budget,statusCode);
-
+		response.setMessages(messages);
+		responseEntity = new ResponseEntity<Response<BudgetDTO>>(response, statusCode);
+		return responseEntity;
 	}
-	
-	/*
-	@PostMapping
-	public ResponseEntity<BudgetDTO> create(@RequestBody BudgetDTO budget){
-		
-		try {
-			createBudgetCommand.exceute(budget);
-		} catch (Exception e) {
-			System.out.println(e.getStackTrace());
-		}
-		
-        return new ResponseEntity<>(budget, HttpStatus.CREATED);
 
-	}*/
-	
-	
+	/*
+	 * @PostMapping public ResponseEntity<BudgetDTO> create(@RequestBody BudgetDTO
+	 * budget){
+	 * 
+	 * try { createBudgetCommand.exceute(budget); } catch (Exception e) {
+	 * System.out.println(e.getStackTrace()); }
+	 * 
+	 * return new ResponseEntity<>(budget, HttpStatus.CREATED);
+	 * 
+	 * }
+	 */
+
 	@GetMapping
 	public String saludar() {
 		return ("Hola mundo");
 	}
 	/*
-    @GetMapping(path = "/budgets")
-    public List<BudgetDTO> list() {
-        return createBudgetPort.li;
-    }*/
+	 * @GetMapping(path = "/budgets") public List<BudgetDTO> list() { return
+	 * createBudgetPort.li; }
+	 */
 
 }
