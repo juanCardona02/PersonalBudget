@@ -18,7 +18,7 @@ public class CreateBudgetCommand  implements CreateBudgetPort {
 	private CreateBudgetUseCase useCase;
 
 	@Override
-	public void exceute(BudgetDTO budget) {
+	public void execute(BudgetDTO budget) {
 		
 		useCase.execute(dtoAssambler.assembleDomain(budget));
 		

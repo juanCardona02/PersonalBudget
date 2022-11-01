@@ -4,6 +4,6 @@ import com.mipresupuesto.personalbudget.dto.BudgetDTO;
 
 public interface CreateBudgetPort {
 	
-	void exceute(BudgetDTO budget);
+	void execute(BudgetDTO budget);
 
 }
