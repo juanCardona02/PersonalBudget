@@ -34,12 +34,12 @@ public class BudgetEntity {
 
 	}
 
-	public final UUID getId() {
+	public UUID getId() {
 
 		return id;
 	}
 
-	public final void setId(final UUID id) {
+	public void setId(final UUID id) {
 		this.id = id;
 	}
 
@@ -49,7 +49,7 @@ public class BudgetEntity {
 		setPerson(person);
 	}
 
-	public final YearEntity getYear() {
+	public YearEntity getYear() {
 
 		if (UtilObject.getUtilObject().isNull(year)) {
 			setYear(new YearEntity());
@@ -57,11 +57,11 @@ public class BudgetEntity {
 		return year;
 	}
 
-	public final void setYear(YearEntity year) {
+	public void setYear(YearEntity year) {
 		this.year = UtilObject.getUtilObject().getDefault(year, new YearEntity());
 	}
 
-	public final PersonEntity getPerson() {
+	public PersonEntity getPerson() {
 
 		if (UtilObject.getUtilObject().isNull(person)) {
 			setPerson(new PersonEntity());
@@ -69,7 +69,7 @@ public class BudgetEntity {
 		return person;
 	}
 
-	public final void setPerson(PersonEntity person) {
+	public void setPerson(PersonEntity person) {
 		this.person = UtilObject.getUtilObject().getDefault(person, new PersonEntity());
 	}
 

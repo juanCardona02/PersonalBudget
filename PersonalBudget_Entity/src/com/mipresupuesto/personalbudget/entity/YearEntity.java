@@ -34,23 +34,23 @@ public class YearEntity {
 
 	}
 
-	public final UUID getId() {
+	public UUID getId() {
 
 		return id;
 	}
 
-	public final void setId(final UUID id) {
+	public void setId(final UUID id) {
 		this.id = id;
 	}
 
-	public final int getYear() {
+	public int getYear() {
 		if (year < 0) {
 			setYear(0);
 		}
 		return year;
 	}
 
-	public final void setYear(final int year) {
+	public void setYear(final int year) {
 		this.year = (int) UtilNumeric.getDefault(year);
 	}
 

@@ -56,28 +56,28 @@ public class PersonEntity {
 
 	}
 
-	public final void setId(final UUID id) {
+	public void setId(final UUID id) {
 		this.id = id;
 	}
 
-	public final void setIdCard(final String idCard) {
+	public  void setIdCard(final String idCard) {
 		this.idCard = UtilText.getDefault(idCard);
 	}
 
-	public final void setFirstName(final String firstName) {
+	public  void setFirstName(final String firstName) {
 		this.firstName = UtilText.getDefault(firstName);
 	}
 
-	public final void setMiddleName(final String middleName) {
+	public  void setMiddleName(final String middleName) {
 		this.middleName = UtilText.getDefault(middleName);
 	}
 
-	public final void setLastName(final String lastName) {
+	public  void setLastName(final String lastName) {
 		this.lastName = UtilText.getDefault(lastName);
 
 	}
 
-	public final UUID getId() {
+	public  UUID getId() {
 
 		if (UtilUUID.isNull(id)) {
 			setId(UtilUUID.DEFAULT_UUID);
@@ -86,7 +86,7 @@ public class PersonEntity {
 		return id;
 	}
 
-	public final String getIdCard() {
+	public  String getIdCard() {
 
 		if (UtilText.isNull(idCard)) {
 			setIdCard(UtilText.EMPTY);
@@ -94,21 +94,21 @@ public class PersonEntity {
 		return UtilText.trim(idCard);
 	}
 
-	public final String getFirstName() {
+	public  String getFirstName() {
 		if (UtilText.isNull(firstName)) {
 			setFirstName(UtilText.EMPTY);
 		}
 		return UtilText.trim(firstName);
 	}
 
-	public final String getMiddleName() {
+	public  String getMiddleName() {
 		if (UtilText.isNull(middleName)) {
 			setMiddleName(UtilText.EMPTY);
 		}
 		return UtilText.trim(middleName);
 	}
 
-	public final String getLastName() {
+	public  String getLastName() {
 		if (UtilText.isNull(lastName)) {
 			setLastName(UtilText.EMPTY);
 		}
