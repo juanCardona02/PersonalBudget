@@ -36,6 +36,7 @@ public class PersonalBudgetApiApplication implements CommandLineRunner {
 
 		logger.info("----------------------------------------");
 		logger.info("Configuration properties");
+		logger.info("   password is {}", configuration.getUrl());
 		logger.info("   username is {}", configuration.getUsername());
 		logger.info("   password is {}", configuration.getPassword());
 		logger.info("----------------------------------------");
