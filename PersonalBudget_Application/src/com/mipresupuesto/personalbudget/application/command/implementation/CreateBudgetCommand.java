@@ -12,6 +12,7 @@ import com.mipresupuesto.personalbudget.dto.BudgetDTO;
 @Service
 public class CreateBudgetCommand  implements CreateBudgetPort {
 	
+	@Autowired
 	private DTOAssambler<BudgetDTO,BudgetDomain> dtoAssambler;
 	
 	@Autowired

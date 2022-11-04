@@ -26,11 +26,7 @@ public class PersonEntity {
 	private String middleName;
 	@Column(name = "lastName")
 	private String lastName;
-	@Column(name = "name")
-	private String name;
-	@Column(name = "completeName")
-	private String completeName;
-
+	
 	public PersonEntity() {
 
 		setId(UtilUUID.DEFAULT_UUID);
@@ -38,22 +34,18 @@ public class PersonEntity {
 		setFirstName(UtilText.EMPTY);
 		setMiddleName(UtilText.EMPTY);
 		setLastName(UtilText.EMPTY);
-		setName(UtilText.EMPTY);
-		setCompleteName(UtilText.EMPTY);
+		
 
 	}
 
 	public PersonEntity(final UUID id, final String idCard, final String firstName, final String middleName,
-			final String lastName, final String name, final String completeName) {
+			final String lastName) {
 
 		setId(id);
 		setIdCard(idCard);
 		setFirstName(firstName);
 		setMiddleName(middleName);
-		setLastName(lastName);
-		setName(name);
-		setCompleteName(completeName);
-
+		
 	}
 
 	public void setId(final UUID id) {
@@ -115,27 +107,5 @@ public class PersonEntity {
 		return UtilText.trim(lastName);
 	}
 
-	public String getName() {
-		if (UtilText.isNull(name)) {
-			setName(UtilText.EMPTY);
-		}
-		return UtilText.trim(name);
-	}
-
-	public void setName(String name) {
-		this.name = UtilText.getDefault(name);
-	}
-
-	public String getCompleteName() {
-
-		if (UtilText.isNull(completeName)) {
-			setCompleteName(UtilText.EMPTY);
-		}
-		return UtilText.trim(completeName);
-	}
-
-	public void setCompleteName(String completeName) {
-		this.completeName = UtilText.getDefault(completeName);
-	}
 
 }

@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.mipresupuesto.personalbudget.application.command.interfaces.CreateBudgetPort;
 import com.mipresupuesto.personalbudget.controller.response.Response;
+import com.mipresupuesto.personalbudget.controller.response.dto.Message;
 import com.mipresupuesto.personalbudget.crosscuting.exception.PersonalBudgetException;
 import com.mipresupuesto.personalbudget.dto.BudgetDTO;
 
@@ -30,25 +31,25 @@ public class BudgetController {
 	@PostMapping
 	public ResponseEntity<Response<BudgetDTO>> createBudget(@RequestBody BudgetDTO budget) {
 		Response<BudgetDTO> response = new Response<>();
-		ResponseEntity<Response<BudgetDTO>> responseEntity;
-		HttpStatus statusCode = HttpStatus.BAD_REQUEST;
+		HttpStatus statusCode = HttpStatus.OK;
 		response.setData(new ArrayList<>());
 		ArrayList<String> messages = new ArrayList<>();
 		try {
 			createBudgetPort.execute(budget);
 			response.addData(budget);
 			statusCode = HttpStatus.OK;
-			messages.add("Budget created Succesfully");
+			response.addMessage(Message.createErrorMessage("Budget created Succesfully"));
 		} catch (PersonalBudgetException exception) {
 			messages.add(exception.getMessage());
 		} catch (Exception exception) {
+			statusCode=HttpStatus.BAD_REQUEST;
 			messages.add(exception.getMessage());
+			response.addMessage(Message.createErrorMessage("Error al crer el presupuesto"));
 		}
-		response.setMessages(messages);
-		responseEntity = new ResponseEntity<Response<BudgetDTO>>(response, statusCode);
-		return responseEntity;
-	}
 
+		return new ResponseEntity<Response<BudgetDTO>>(response, statusCode);
+		
+	}
 	/*
 	 * @PostMapping public ResponseEntity<BudgetDTO> create(@RequestBody BudgetDTO
 	 * budget){
